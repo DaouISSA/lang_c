@@ -2,7 +2,7 @@
 #include<stdlib.h>
 #include<stdbool.h>
 
-static const float data ={
+static float data[]  ={
     18042893.83, 8469308.86, 16816927.77, 
     17146369.15, 19577477.93, 4242383.35, 
     -7198853.86, 16497604.92, 5965166.49, 
@@ -21,11 +21,34 @@ static const float data ={
            19735943.24, 1497983.15, 20386643.70
 } ;
 
-unsigned integer minIndex(unsigned integer start){
-    for (int i = start;i<50;i++){
-        for(int j=start; j<i;j++){
-            if(data[] )
-        }
-    }
 
+unsigned int minIndex (unsigned int start){
+    int c=start;
+    for (int i = start;i<49;i++){
+        if(data[i+1]<data[c] ){  
+             c=i+1;
+        } 
+    }
+    return c;
+
+} 
+
+void sort( ){
+    for(unsigned int i=0;i<50;i++){
+        unsigned int idx = minIndex(i);
+        float min= data[idx];
+        float temp = data[i];
+        data[i]=min;
+        data[idx] = temp; 
+           
+    } 
+} 
+
+int main(){
+    sort();
+    for(int i =0;i<50;i++){
+
+    printf("%f\n ", data[i]  );
+    } 
+    
 } 
